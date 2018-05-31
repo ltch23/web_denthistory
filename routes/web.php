@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/template', function () {
     return view('template');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
+Route::get('/inicio', function () { return view('paciente/inicio');});
+Route::get('/perfil', function () { return view('paciente/perfil');});
+Route::get('/historial', function () { return view('paciente/historial');});
+Route::get('/autorizar', function () { return view('paciente/autorizar');});
+Route::get('/odontograma', function () { return view('paciente/odontograma');});
