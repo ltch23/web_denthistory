@@ -9,10 +9,10 @@
                 <option value="1">Paciente</option>
                 <option value="2">Dentista</option>
             </select>
-            <input type="text" placeholder="Nombre de usuario" name="username" />
-            <input type="text" placeholder="Correo Electronico" name="email" />
-            <input type="password" placeholder="Constraseña" name="password1" />
-            <input type="password" placeholder="Repita Constraseña" name="password2" />
+            <input type="text" placeholder="Nombre de usuario" name="username" required/>
+            <input type="text" placeholder="Correo Electronico" name="email" required/>
+            <input type="password" placeholder="Constraseña" name="password1" required/>
+            <input type="password" placeholder="Repita Constraseña" name="password2" required/>
             <input type="submit" value="Registrar" class="btn btn-success btn-sm" />
             <a href="{{ route('login') }}" class="btn btn-default btn-sm boton" >Ir a Login</a>
 
