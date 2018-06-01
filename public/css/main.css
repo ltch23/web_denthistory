@@ -86,6 +86,7 @@ iframe {
 a, a:focus, a:hover {
   text-decoration: none;
   outline: 0;
+  color: #434343;
 }
 
 .btn.active.focus,
@@ -1883,6 +1884,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  background-color: #58d3e3;
 }
 
 #header.header-scrolled {
@@ -1897,6 +1899,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@font-face {
+  font-family: myFirstFont;
+  src: url(../fonts/Damion-Regular.ttf);
+}
+
+.app_name {
+  font-family: myFirstFont;
+  color: white;
+  font-size: 30px;
+}
+
 #header #logo h1 {
   font-size: 34px;
   margin: 0;
@@ -1909,7 +1922,7 @@ h1, h2, h3, h4, h5, h6 {
 #header #logo h1 a, #header #logo h1 a:hover {
   color: #fff;
   padding-left: 10px;
-  border-left: 4px solid #df003a;
+  border-left: 4px solid #58d3e3;
 }
 
 #header #logo img {
@@ -2063,7 +2076,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mobile-nav-toggle i {
-  color: #df003a;
+  color: #ffffff;
   font-weight: 900;
 }
 
@@ -2083,7 +2096,8 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 18px;
   bottom: 0;
   z-index: 998;
-  background: rgba(0, 0, 0, 0.8);
+  background: #58d3e3cc;
+  left: -260px;
   left: -260px;
   width: 260px;
   overflow-y: auto;
@@ -2168,7 +2182,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .section-gap {
-  padding: 120px 0;
+  padding: 70px 0;
 }
 
 .section-title {
@@ -2986,4 +3000,20 @@ h6 {
 
 .switch-wrap p {
   margin: 0;
+}
+.fecha{
+  color: white;
+  background-color: #e9ad29;
+}
+
+.cortar{
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
