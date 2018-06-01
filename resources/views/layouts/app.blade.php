@@ -18,7 +18,7 @@
             min-height:100%;
         }
         body{
-            background: url('{{asset('img/back.jpg')}}') no-repeat center center fixed;
+            background: url('{{asset('img/montanas.jpg')}}') no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -47,14 +47,13 @@
 
         p.form-title
         {
-            font-family: 'Open Sans' , sans-serif;
-            font-size: 25px;
-            font-weight: 600;
             text-align: center;
-            color: #000;
             margin-top: 5%;
-            text-transform: uppercase;
             letter-spacing: 4px;
+            font-family: myFirstFont;
+            color: white;
+            font-size: 45px;
+            /*text-shadow: 5px 5px 3px #313131;*/
         }
 
         form
@@ -141,7 +140,7 @@
 
         form.login a:hover
         {
-            color: #2ecc71;
+            color: #5bbde3;
         }
         .img-login{
             display:block;
@@ -158,6 +157,21 @@
             cursor: pointer;
             letter-spacing: 1px;
         }
+        @font-face {
+            font-family: myFirstFont;
+            src: url({{asset('fonts/Damion-Regular.ttf')}});
+        }
+        .btn-login {
+            color: #fff;
+            background-color: #58d3e3;
+            border-color: #5bbde3;
+            border-radius: 3px;
+        }
+        .btn-login:hover{
+            background-color: #5bbde3;
+            border-color: #5bbde3;
+        }
+
     </style>
 
 </head>
