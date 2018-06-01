@@ -3,7 +3,7 @@
 @section('content')
     <div class="wrap">
         <p  class="form-title">
-            Dent History Registro</p>
+            Registro</p>
         <form class="login" method="post" action="{{url('/registrar')}}">
             {{ csrf_field() }}
             <select class="inputForm" name="tipo" >
@@ -15,8 +15,8 @@
             <input type="text" placeholder="Correo Electronico" name="email" required/>
             <input type="password" placeholder="Constraseña" name="password1" required/>
             <input type="password" placeholder="Repita Constraseña" name="password2" required/>
-            <input type="submit" value="Registrar" class="btn btn-success btn-sm" />
-            <a href="{{ url('/login') }}" class="btn btn-default btn-sm boton" >Ir a Login</a>
+            <input type="submit" value="Registrar" class="btn btn-login btn-sm" />
+            <a href="{{ url('/') }}" class="btn btn-default btn-sm boton" >Ir a Login</a>
 
         </form>
     </div>

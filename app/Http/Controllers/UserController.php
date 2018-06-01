@@ -53,9 +53,9 @@ class UserController extends Controller
             'nombres'=>$request['nombre'],
             'apellidos'=>$request['apellidos'],
             'correo'=>$request['email'],
-            'contrasenia'=>bcrypt($request['password1']),
+            'password'=>bcrypt($request['password1']),
         ]);
-        return redirect('/login');
+        return redirect('/');
     }
 
     /**
