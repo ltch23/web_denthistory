@@ -8,8 +8,8 @@
             Dent History</p>
         <img class="img-login" src="{{asset('/img/diente5.png')}}" alt="">
         <form class="login">
-            <input type="text" placeholder="Usuario" name="username" />
-            <input type="password" placeholder="Constraseña" name="password" />
+            <input type="text" placeholder="Usuario" name="username" required/>
+            <input type="password" placeholder="Constraseña" name="password" required/>
             <input type="submit" value="Iniciar Sesión" class="btn btn-success btn-sm" />
             <a href="{{ route('register') }}" class="btn btn-default btn-sm boton" >Ir a Registrar</a>
         </form>

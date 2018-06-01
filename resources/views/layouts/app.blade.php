@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -14,14 +13,27 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        html{
+            height:100%;
+            min-height:100%;
+        }
         body{
-            background: url('{{asset('img/back.jpg')}}') no-repeat;
-            position: fixed;
+            background: url('{{asset('img/back.jpg')}}') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+            overflow: hidden;
+            max-width: 100%;
+            width: 100%
+            /*position: fixed;
             z-index: -1;
             top: 0;
             left: 0;
             width: 100%;
             height: 125%;
+            background-size: cover;*/
         }
 
         .wrap
