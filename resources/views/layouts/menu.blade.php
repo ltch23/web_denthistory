@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="{{'/'}}">DentHistory</a>
+                <a href="{{'/'}}" class="app_name">DentHistory</a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
