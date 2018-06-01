@@ -13,14 +13,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
 
     return [
         'tipo'=> $faker->boolean(),
         'nombres' => $faker->firstName,
         'apellidos'=>$faker->lastName,
         'correo' => $faker->unique()->safeEmail,
-        'contrasenia' => $password ?: $password = bcrypt('123'),
+        'password' => bcrypt('123'),
         'menor_edad' =>$faker->boolean(),
         'dni'=>$faker->randomNumber(),
         'fecha_nacimiento'=>$faker->date(),

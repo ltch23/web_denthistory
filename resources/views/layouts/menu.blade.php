@@ -44,6 +44,7 @@
                     <li><a href="{{'/historial'}}">Historial</a></li>
                     <li><a href="{{'/odontograma'}}">Odontograma</a></li>
                     <li><a href="{{'/autorizar'}}">Autorizar a Doctor</a></li>
+                    <li><a href="{{url('/logout')}}">Cerrar Sesión</a></li>
                     <!-- <li><a>Price</a></li>
                     				          <li><a href="#blog">Blog</a></li>
                     <li class="menu-has-children"><a href="">Pages</a>

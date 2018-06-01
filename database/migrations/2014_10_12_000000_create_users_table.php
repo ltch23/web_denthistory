@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('correo')->unique();
-            $table->string('contrasenia');
+            $table->string('password');
             $table->boolean('menor_edad')->nullable();
             $table->string('tutor')->nullable();
             $table->integer('dni')->nullable();

@@ -68,11 +68,16 @@ class UserController extends Controller
     {
         $email =$request['correo'];
         $password= $request['contrasenia'];
+        error_log($email);
+        error_log($password);
         $usuario=User::where('correo', $email)->first();
 
-        if($usuario!=NULL and $usuario->contrasenia==bcrypt($password)){
-            return view('/inicio');
+        //if($usuario!=NULL and $usuario->contrasenia==bcrypt($password)){
+         if(Auth::attempt(['correo' => $email, 'password' => $password])){
+            return redirect('/inicio');
+
         }
+        //return "no";
         return redirect()->back();
         //return redirect()->back();
     }
