@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
 
-class UserController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.login');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function register()
+    {
+        return view('auth.register');
     }
 
     /**
@@ -37,44 +44,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function registrar(Request $request)
-    {
-        User::create([
-            'tipo'=>$request['tipo'],
-            'nombres'=>$request['nombre'],
-            'apellidos'=>$request['apellidos'],
-            'correo'=>$request['email'],
-            'contrasenia'=>bcrypt($request['password1']),
-        ]);
-        return redirect('/login');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function login(Request $request)
-    {
-        $email =$request['correo'];
-        $password= $request['contrasenia'];
-        $usuario=User::where('correo', $email)->first();
-
-        if($usuario!=NULL and $usuario->contrasenia==bcrypt($password)){
-            return view('/inicio');
-        }
-        return redirect()->back();
-        //return redirect()->back();
+        //
     }
 
     /**
