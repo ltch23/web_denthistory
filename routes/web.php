@@ -22,9 +22,23 @@ Route::post('/registrar', 'UserController@registrar');
 Route::post('/logear', 'UserController@login');
 Route::get('/register', 'AuthController@register');
 Route::get('/', 'AuthController@index');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/inicio', function () {
+        return view('paciente/inicio');
+    });
+    Route::get('/perfil', function () {
+        return view('paciente/perfil');
+    });
+    Route::get('/historial', function () {
+        return view('paciente/historial');
+    });
+    Route::get('/autorizar', function () {
+        return view('paciente/autorizar');
+    });
+    Route::get('/odontograma', function () {
+        return view('paciente/odontograma');
+    });
 
-Route::get('/inicio', function () { return view('paciente/inicio');});
-Route::get('/perfil', function () { return view('paciente/perfil');});
-Route::get('/historial', function () { return view('paciente/historial');});
-Route::get('/autorizar', function () { return view('paciente/autorizar');});
-Route::get('/odontograma', function () { return view('paciente/odontograma');});
+    Route::get('/logout', 'AuthController@logout');
+
+});
