@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/template', function () {
+/*Route::get('/template', function () {
     return view('template');
 });
-
+*/
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
