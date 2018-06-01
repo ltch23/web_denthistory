@@ -1,7 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="col-md-12">
+
+    <div class="wrap">
+        <p class="form-title">
+            Dent History</p>
+        <img class="img-login" src="{{asset('/img/diente5.png')}}" alt="">
+        <form class="login">
+            <input type="text" placeholder="Usuario" name="username" />
+            <input type="password" placeholder="Constraseña" name="password" />
+            <input type="submit" value="Iniciar Sesión" class="btn btn-success btn-sm" />
+            <a href="{{ route('register') }}" class="btn btn-default btn-sm boton" >Ir a Registrar</a>
+        </form>
+    </div>
+    </div>
+    @endsection
+
+
+
+<!--<div class="remember-forgot">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" />
+                                Mantener Sesión Abierta
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>-->
+
+
+<!--
+<div class="container" >
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -66,4 +100,5 @@
         </div>
     </div>
 </div>
-@endsection
+-->
+</body>
