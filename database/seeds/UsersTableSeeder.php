@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         $faker = Faker::create();
         DB::table('users')->insert([
-            'tipo'=> 1,
+            'tipo'=> 0,
             'nombres' => $faker->firstName,
             'apellidos'=>$faker->lastName,
             'correo' => 'paciente@gmail.com',
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
         DB::table('users')->insert([
-            'tipo'=> 2,
+            'tipo'=> 1,
             'nombres' => $faker->firstName,
             'apellidos'=>$faker->lastName,
             'correo' => 'odonto@gmail.com',
@@ -50,7 +50,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        factory(App\User::class,5)->create();
+        //factory(App\User::class,5)->create();
 
     }
 }

@@ -7,8 +7,8 @@
         <form class="login" method="post" action="{{url('/registrar')}}">
             {{ csrf_field() }}
             <select class="inputForm" name="tipo" >
-                <option value="1">Paciente</option>
-                <option value="2">Dentista</option>
+                <option value="0">Paciente</option>
+                <option value="1">Dentista</option>
             </select>
             <input type="text" placeholder="Nombre" name="nombre" required/>
             <input type="text" placeholder="Apellidos" name="apellidos" required/>

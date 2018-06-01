@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="list-group">
+                    @for($i = 1; $i <= 5; $i++)
                     <a href="#jo" class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 fecha">
@@ -20,6 +21,7 @@
                             </div>
                         </div>
                     </a>
+                    @endfor
                 </div>
             </div>
         </div>
