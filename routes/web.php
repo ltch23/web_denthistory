@@ -15,9 +15,14 @@
     return view('template');
 });
 */
-Auth::routes();
+//Auth::routes();
 
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
+Route::post('/registrar', 'UserController@registrar');
+Route::post('/logear', 'UserController@login');
+Route::get('/register', 'AuthController@register');
+Route::get('/', 'AuthController@index');
+
 Route::get('/inicio', function () { return view('paciente/inicio');});
 Route::get('/perfil', function () { return view('paciente/perfil');});
 Route::get('/historial', function () { return view('paciente/historial');});
