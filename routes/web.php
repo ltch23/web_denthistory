@@ -22,6 +22,7 @@ Route::post('/registrar', 'UserController@registrar');
 Route::post('/logear', 'UserController@login');
 Route::get('/register', 'AuthController@register');
 Route::get('/', 'AuthController@index');
+
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/inicio', function () {
         return view('paciente/inicio');
@@ -31,6 +32,9 @@ Route::group(['middleware' => 'admin'], function () {
     });
     Route::get('/historial', function () {
         return view('paciente/historial');
+    });
+    Route::get('/detalle', function () {
+        return view('paciente/detalle');
     });
     Route::get('/autorizar', function () {
         return view('paciente/autorizar');

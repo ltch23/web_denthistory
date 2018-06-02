@@ -7,17 +7,17 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-10">
             	<div class="single-testimonial item">
-                    <img class="mx-auto" src="img/cliente_1.png" alt="">
-                    <p class="desc">
+                    <img class="mx-auto" src="img/cliente_1.png" alt="" width="80px">
+                    <!--<p class="desc">
                         En esta sección se encuentra información relevante del paciente: Nombre, Edad, Enfermedades hereditarias, alergias, etc. La información que coloque deberá ser objetiva y precisa.
-                    </p>
+                    </p>-->
                     <h4>Luke Skywalker</h4>
                     <p>
                         Abogado de Cementos Yura
                     </p>
                 </div>
                 <div class="title text-center">
-                    <h1 class="mb-10">Datos Personales</h1>
+                    <h5 class="mb-10">Datos Personales</h5>
                     <p>Información de Contacto.</p>
                 </div>
             </div>
@@ -102,7 +102,7 @@
             <div class="menu-content pb-60 col-lg-10">
             	
                 <div class="title text-center">
-                    <h1 class="mb-10">Razón Social de Seguro Asociado</h1>
+                    <h4 class="mb-10">Razón Social de Seguro Asociado</h4>
                     <p>Descripción de los datos de la afiliación médica.</p>
                 </div>
             </div>
