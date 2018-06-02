@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h5>Autorizar</h5>
+                <h5>Detalle de historia</h5>
             </div>
         </div>
     </div>
