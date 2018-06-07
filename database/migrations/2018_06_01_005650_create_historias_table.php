@@ -22,7 +22,8 @@ class CreateHistoriasTable extends Migration
             $table->longText('diagnostico');
             $table->longText('observaciones');
             $table->longText('tratamiento');
-            $table->string('radiografia')->nullable();
+            $table->text('radiografia')->nullable();
+            $table->string('img_radiografia')->nullable();
             $table->integer('id_odontograma')->nullable();
         });
     }
