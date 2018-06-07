@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'telefono'=>$faker->phoneNumber,
             'alergias'=>$faker->text(5),
             'hereditarios'=>$faker->text(5),
-            'id_odontograma'=>$faker->numberBetween(1,2),
+            'id_odontograma'=>1,
             'remember_token' => str_random(10),
         ]);
         DB::table('users')->insert([
@@ -37,16 +37,11 @@ class UsersTableSeeder extends Seeder
             'apellidos'=>$faker->lastName,
             'correo' => 'odonto@gmail.com',
             'password' => bcrypt('123'),
-            'menor_edad' =>$faker->boolean(),
-            'dni'=>$faker->randomNumber(),
             'fecha_nacimiento'=>$faker->date(),
             'sexo'=>$faker->boolean(),
             'domicilio'=>$faker->address,
             'localidad'=>$faker->country,
             'telefono'=>$faker->phoneNumber,
-            'alergias'=>$faker->text(5),
-            'hereditarios'=>$faker->text(5),
-            'id_odontograma'=>$faker->numberBetween(1,2),
             'remember_token' => str_random(10),
         ]);
 
@@ -56,16 +51,11 @@ class UsersTableSeeder extends Seeder
             'apellidos'=>$faker->lastName,
             'correo' => 'doctor@gmail.com',
             'password' => bcrypt('123'),
-            'menor_edad' =>$faker->boolean(),
-            'dni'=>$faker->randomNumber(),
             'fecha_nacimiento'=>$faker->date(),
             'sexo'=>$faker->boolean(),
             'domicilio'=>$faker->address,
             'localidad'=>$faker->country,
             'telefono'=>$faker->phoneNumber,
-            'alergias'=>$faker->text(5),
-            'hereditarios'=>$faker->text(5),
-            'id_odontograma'=>$faker->numberBetween(1,2),
             'remember_token' => str_random(10),
         ]);
 

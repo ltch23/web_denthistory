@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Odontograma;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,13 +49,21 @@ class UserController extends Controller
      */
     public function registrar(Request $request)
     {
-        User::create([
+        $id = User::create([
             'tipo'=>$request['tipo'],
             'nombres'=>$request['nombre'],
             'apellidos'=>$request['apellidos'],
             'correo'=>$request['email'],
             'password'=>bcrypt($request['password1']),
-        ]);
+        ])->id;
+        if($request['tipo'].equalTo(0)){
+            $id_o = Odontograma::create([
+                'id_usuario'=>$id,
+            ])->id;
+            $user = User::where('id', $id )->first();
+            $user->id_odontograma = $id_o;
+            $user->save();
+        }
         return redirect('/');
     }
 

@@ -36,9 +36,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/autorizar', function () {
         return view('paciente/autorizar');
     });
-    Route::get('/odontograma', function () {
-        return view('paciente/odontograma');
-    });
+    Route::get('/odontograma', 'OdontogramaController@index');
 
     /*Rutas del Doctor*/
     Route::get('/inicio_doc', function () {

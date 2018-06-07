@@ -20,14 +20,15 @@
     <!--
     CSS
     ============================================= -->
-    <link rel="stylesheet" href="{{url('css/linearicons.css')}}">
-    <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{url('css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{url('css/nice-select.css')}}">
-    <link rel="stylesheet" href="{{url('css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{url('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/linearicons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 <body>
 
@@ -80,22 +81,20 @@
 </footer>
 -->
 <!-- End footer Area -->
+<script src="{{asset('js/vendor/jquery-2.2.4.min.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-<script src="{{url('js/vendor/jquery-2.2.4.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="{{url('js/vendor/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="{{url('js/easing.min.js')}}"></script>
-<script src="{{url('js/hoverIntent.js')}}"></script>
-<script src="{{url('js/superfish.min.js')}}"></script>
-<script src="{{url('js/jquery.ajaxchimp.min.js')}}"></script>
-<script src="{{url('js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{url('js/owl.carousel.min.js')}}"></script>
-<script src="{{url('js/jquery.sticky.js')}}"></script>
-<script src="{{url('js/jquery.nice-select.min.js')}}"></script>
-<script src="{{url('js/parallax.min.js')}}"></script>
-<script src="{{url('js/mail-script.js')}}"></script>
-<script src="{{url('js/main.js')}}"></script>
+<script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')}}"></script>
+<script src="{{asset('js/easing.min.js')}}"></script>
+<script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('js/parallax.min.js')}}"></script>
+<script src="{{asset('js/superfish.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
 

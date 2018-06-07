@@ -3026,6 +3026,7 @@ h6 {
   border: 1px solid black;
   width:30px;
   height:30px;
+  cursor: pointer;
 }
 .cuadrado{
   border: 1px solid black;
@@ -3211,4 +3212,9 @@ h6 {
   .modal-content {
     width: 100%;
   }
+}
+
+.modal-backdrop {
+  /* bug fix - no overlay */
+  display: none;
 }
