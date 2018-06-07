@@ -74,9 +74,11 @@ class UserController extends Controller
 
         //if($usuario!=NULL and $usuario->contrasenia==bcrypt($password)){
          if(Auth::attempt(['correo' => $email, 'password' => $password])){
-            return redirect('/inicio');
-
-        }
+            if ($usuario->tipo == false)
+                return redirect('/inicio');
+            else
+                return redirect('/inicio_doc');
+         }
         //return "no";
         return redirect()->back();
         //return redirect()->back();

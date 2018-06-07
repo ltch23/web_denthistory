@@ -43,6 +43,17 @@ Route::group(['middleware' => 'admin'], function () {
         return view('paciente/odontograma');
     });
 
+    /*Rutas del Doctor*/
+    Route::get('/inicio_doc', function () {
+        return view('doctor/inicio');
+    });
+    Route::get('/perfil_doc', function () {
+        return view('doctor/perfil');
+    });
+    Route::get('/pacientes', function () {
+        return view('doctor/pacientes');
+    });
+
     Route::get('/logout', 'AuthController@logout');
 
 });

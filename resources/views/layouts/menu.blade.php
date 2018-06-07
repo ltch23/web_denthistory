@@ -31,6 +31,7 @@
 </head>
 <body>
 
+<!-- #header -->
 <header id="header" id="home">
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
@@ -39,25 +40,25 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="{{'/inicio'}}">Inicio</a></li>
-                    <li><a href="{{'/perfil'}}">Perfil</a></li>
-                    <li><a href="{{'/historial'}}">Historial</a></li>
-                    <li><a href="{{'/odontograma'}}">Odontograma</a></li>
-                    <li><a href="{{'/autorizar'}}">Autorizar a Doctor</a></li>
+                    @if( \Illuminate\Support\Facades\Auth::user()->tipo == false)
+                        <li><a href="{{'/inicio'}}">Inicio</a></li>
+                        <li><a href="{{'/perfil'}}">Perfil</a></li>
+                        <li><a href="{{'/historial'}}">Historial</a></li>
+                        <li><a href="{{'/odontograma'}}">Odontograma</a></li>
+                        <li><a href="{{'/autorizar'}}">Autorizar a Doctor</a></li>
+                    @else
+                        <li><a href="{{'/inicio_doc'}}">Inicio</a></li>
+                        <li><a href="{{'/perfil_doc'}}">Perfil</a></li>
+                        <li><a href="{{'/pacientes'}}">Pacientes</a></li>
+                    @endif
+
                     <li><a href="{{url('/logout')}}">Cerrar Sesión</a></li>
-                    <!-- <li><a>Price</a></li>
-                    				          <li><a href="#blog">Blog</a></li>
-                    <li class="menu-has-children"><a href="">Pages</a>
-                        <ul>
-                            <li><a href="generic.html">Generic</a></li>
-                            <li><a href="elements.html">Elements</a></li>
-                        </ul>
-                    </li>-->
                 </ul>
+
             </nav><!-- #nav-menu-container -->
         </div>
     </div>
-</header><!-- #header -->
+</header>
 
 @yield('content')
 
