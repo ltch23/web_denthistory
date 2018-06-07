@@ -30,17 +30,23 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/perfil', function () {
         return view('paciente/perfil');
     });
-    Route::get('/historial', function () {
-        return view('paciente/historial');
-    });
-    Route::get('/detalle', function () {
-        return view('paciente/detalle');
-    });
+    Route::get('/historial', 'HistoriasController@index');
+    Route::get('/detalle/{id}/{id_doctor}','HistoriasController@verDetalle');
+
     Route::get('/autorizar', function () {
         return view('paciente/autorizar');
     });
-    Route::get('/odontograma', function () {
-        return view('paciente/odontograma');
+    Route::get('/odontograma', 'OdontogramaController@index');
+
+    /*Rutas del Doctor*/
+    Route::get('/inicio_doc', function () {
+        return view('doctor/inicio');
+    });
+    Route::get('/perfil_doc', function () {
+        return view('doctor/perfil');
+    });
+    Route::get('/pacientes', function () {
+        return view('doctor/pacientes');
     });
 
     Route::get('/logout', 'AuthController@logout');

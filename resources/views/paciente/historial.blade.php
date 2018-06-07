@@ -6,22 +6,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="list-group">
-                    @for($i = 1; $i <= 5; $i++)
-                    <a href="{{url('/detalle')}}" class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2 fecha">
-                                21 Jun 2018
-                            </div>
-                            <div class="col-md-10">
-                                <span class="fa fa-user-o"></span> Doctor Lopez <br>
-                                <div class="cortar">
-                                    <span class="fa fa-bookmark-o"></span>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa deleniti dolor enim excepturi, hic nobis quaerat tempora! Accusantium asperiores assumenda consequuntur enim nisi porro quas repellendus sequi tempora voluptatum!
+                    <?php $cont = 0?>
+                    @foreach($historias as $val)
+                        <a href="{{url('/detalle/'.$val->id.'/'.$doctores[$cont]->id)}}" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-2 fecha">
+                                    {{$val->fecha}}
+                                </div>
+                                <div class="col-md-10">
+                                    <span class="fa fa-user-o"></span> {{$doctores[$cont]->nombres}} {{$doctores[$cont]->apellidos}} <br>
+                                    <div class="cortar">
+                                        <span class="fa fa-bookmark-o"></span>
+                                        {{$val->diagnostico}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                    @endfor
+                        </a>
+                        <?php $cont += 1?>
+                    @endforeach
                 </div>
             </div>
         </div>

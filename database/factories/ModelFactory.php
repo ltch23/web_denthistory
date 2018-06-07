@@ -36,14 +36,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Historias::class, function (Faker\Generator $faker) {
     return [
-        'id_usuario'=>$faker->numberBetween(1,3),
-        'id_doctor' => $faker->numberBetween(4,5),
+        'id_usuario'=> '1',
+        'id_doctor' => $faker->numberBetween(2,3),
         'fecha' => $faker->date(),
         'motivo_consulta' => $faker->text,
         'diagnostico' => $faker->text,
         'observaciones' => $faker->text,
         'tratamiento' => $faker->text,
-        'radiografia' => $faker->imageUrl(),
-        'id_odontograma' => $faker->numberBetween(1,2),
+        'radiografia' => $faker->text,
+        'img_radiografia' => 'img/radiografias/h_1.png',
+        'id_odontograma' => $faker->numberBetween(2,3),
     ];
 });
