@@ -27,9 +27,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/inicio', function () {
         return view('paciente/inicio');
     });
-    Route::get('/perfil', function () {
-        return view('paciente/perfil');
-    });
+    Route::get('/perfil', 'UserController@index');
+    Route::post('/guardar_perfil', 'UserController@save');
+
     Route::get('/historial', 'HistoriasController@index');
     Route::get('/detalle/{id}/{id_doctor}','HistoriasController@verDetalle');
 

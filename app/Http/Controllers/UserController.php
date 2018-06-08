@@ -17,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::user()->id;
+        $perfil = User::where('id',$user_id)->first();
+        #return $perfil;
+        return view('paciente/perfil')->with('perfil',$perfil);
     }
 
     /**
@@ -39,6 +42,30 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+    }
+
+       /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request   
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $user = User::where('id', $user_id )->first();
+        $user->nombres = $request['nombre'];
+        $user->apellidos = $request['apellidos'];
+        $user->correo = $request['correo'];
+        $user->sexo = $request['sexo'];
+        $user->telefono = $request['telefono'];
+        $user->hereditarios = $request['hereditarios'];
+        $user->alergias = $request['alergias'];
+        $user->dni = $request['dni'];
+
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**
