@@ -33,7 +33,6 @@ class AutorizacionesController extends Controller
     
      
          return view('paciente/autorizar')->with('doctores',$doctores)->with('mis_doctores',$mis_doctores);
-        //  return view('paciente/autorizar')->with('doctores',$doctores)->with('mis_doctores',$mis_doctores);
     }
 
     /**
