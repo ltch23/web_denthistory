@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Odontograma;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::user()->id;
+        $perfil = User::where('id',$user_id)->first();
+        #return $perfil;
+        return view('paciente/perfil')->with('perfil',$perfil);
     }
 
     /**
@@ -40,6 +44,30 @@ class UserController extends Controller
 
     }
 
+       /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request   
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $user = User::where('id', $user_id )->first();
+        $user->nombres = $request['nombre'];
+        $user->apellidos = $request['apellidos'];
+        $user->correo = $request['correo'];
+        $user->sexo = $request['sexo'];
+        $user->telefono = $request['telefono'];
+        $user->hereditarios = $request['hereditarios'];
+        $user->alergias = $request['alergias'];
+        $user->dni = $request['dni'];
+
+        $user->save();
+
+        return redirect()->back();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -48,13 +76,21 @@ class UserController extends Controller
      */
     public function registrar(Request $request)
     {
-        User::create([
+        $id = User::create([
             'tipo'=>$request['tipo'],
             'nombres'=>$request['nombre'],
             'apellidos'=>$request['apellidos'],
             'correo'=>$request['email'],
             'password'=>bcrypt($request['password1']),
-        ]);
+        ])->id;
+        if($request['tipo'].equalTo(0)){
+            $id_o = Odontograma::create([
+                'id_usuario'=>$id,
+            ])->id;
+            $user = User::where('id', $id )->first();
+            $user->id_odontograma = $id_o;
+            $user->save();
+        }
         return redirect('/');
     }
 
@@ -74,9 +110,11 @@ class UserController extends Controller
 
         //if($usuario!=NULL and $usuario->contrasenia==bcrypt($password)){
          if(Auth::attempt(['correo' => $email, 'password' => $password])){
-            return redirect('/inicio');
-
-        }
+            if ($usuario->tipo == false)
+                return redirect('/inicio');
+            else
+                return redirect('/inicio_doc');
+         }
         //return "no";
         return redirect()->back();
         //return redirect()->back();

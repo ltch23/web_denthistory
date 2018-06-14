@@ -14,11 +14,19 @@
                     </ul>
                 <h5>Autorizar</h5>
     
-                <form id="buscador" name="buscador" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>"> 
+                <form id="buscador" name="buscador" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <input autocomplete="off" list="listdoctores" class="form-control" id="doctores" name="doctores" placeholder="Buscar por nombre o correo" type="text">
+                    <datalist id="listdoctores">
+                        @foreach($doctores as $doc)
+                            <option data-id="{{$doc->id}}" value="{{$doc->nombres}} {{$doc->apellidos}} {{$doc->correo}}">
+                        @endforeach
+                    </datalist>
+
                     <input id="buscar" name="buscar" type="search" placeholder="Ingrese nombre de medico aqui..." autofocus >
                     <input type="submit" name="buscador" class="boton peque aceptar" value="buscar">
                 </form>
-                            
+
+                <a class="btn-redondo"><span class="fa fa-key"></span></a>
             </div>
         </div>
     </div>

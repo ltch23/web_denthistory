@@ -13,7 +13,7 @@
                 <tr>
                     @for($i = 1; $i <= 16; $i++)
                         <td>
-                            <div class="diente">
+                            <div class="diente" data-diente="diente{{$i}}" data-name="{{$dientes[$i-1]}}">
                                 <div class="trapecio-alto"></div>
                                 <div class="trapecio-bajo"></div>
                                 <div class="cuadrado"></div>
@@ -30,15 +30,17 @@
                 <tr>
                     @for($i = 17; $i <= 32; $i++)
                         <td>
-                            <div class="diente">
-                                <div class="trapecio-alto"></div>
-                                <div class="trapecio-bajo"></div>
-                                <div class="cuadrado"></div>
-                                <div class="trapecio-izq"></div>
-                                <div class="trapecio-der"></div>
-                                <div class="cross" style="background-color: transparent"></div>
-                                <div class="cross2" style="background-color: transparent"></div>
-                                <div class="puente" style="background-color: transparent"></div>
+                            <div class="diente" data-diente="diente{{$i}}" data-name="{{$dientes[$i-17]}}">
+                                <div class="dent{{$i}}">
+                                    <div class="trapecio-alto"></div>
+                                    <div class="trapecio-bajo"></div>
+                                    <div class="cuadrado"></div>
+                                    <div class="trapecio-izq"></div>
+                                    <div class="trapecio-der"></div>
+                                    <div class="cross" style="background-color: transparent"></div>
+                                    <div class="cross2" style="background-color: transparent"></div>
+                                    <div class="puente" style="background-color: transparent"></div>
+                                </div>
                             </div>
                         </td>
                     @endfor
@@ -91,4 +93,30 @@
     </div>
 </section>
 
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-title"><b id="name_diente"></b></div>
+            </div>
+            <div class="modal-body">
+                <p id="info"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $('.diente').click(function() {
+        var idc=($(this).data("diente"));
+        var nombre=($(this).data("name"));
+        var data = JSON.parse('<?php echo json_encode($odont); ?>');
+        $('#myModal').modal('show');
+        $('#name_diente').text(nombre);
+        $('#info').html(data[idc]);
+    });
+</script>
 @endsection

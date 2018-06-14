@@ -8,6 +8,6 @@ class Historias extends Model
 {
     protected $table = 'historias';
     protected $fillable = ['id_usuario','id_doctor', 'fecha','motivo_consulta','diagnostico','observaciones','tratamiento',
-                            'radiografia','cambios'];
+                            'radiografia','img_radiografia','cambios'];
     public $timestamps = false;
 }

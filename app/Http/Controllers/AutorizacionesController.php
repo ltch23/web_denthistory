@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Odontograma;
+use App\Autorizaciones;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class OdontogramaController extends Controller
+class AutorizacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +15,8 @@ class OdontogramaController extends Controller
      */
     public function index()
     {
-        $dientes =[
-            'Tercer Molar Izquierdo','Segundo Molar Izquierdo', 'Primer Molar Izquierdo','Segundo Premolar Izquierdo','Primer Premolar Izquierdo', 'Canino Izquierdo', 'Incisivo Lateral Izquierdo', 'Incisivo Central Izquierdo',
-            'Incisivo Central Derecho','Incisivo Lateral Derecho','Canino Derecho','Primer Premolar Derecho','Segundo Premolar Derecho', 'Primer Molar Derecho','Segundo Molar Derecho','Tercer Molar Derecho'
-        ];
-        $user_id = Auth::user()->id;
-        $odont = Odontograma::where('id_usuario',$user_id)->first();
-
-        return view('paciente/odontograma')->with('dientes',$dientes)->with('odont',$odont);
+        $doctores = User::where('tipo','1')->get();
+        return view('paciente/autorizar')->with('doctores',$doctores);
     }
 
     /**
@@ -49,10 +43,10 @@ class OdontogramaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Odontograma  $odontograma
+     * @param  \App\Autorizaciones  $autorizaciones
      * @return \Illuminate\Http\Response
      */
-    public function show(Odontograma $odontograma)
+    public function show(Autorizaciones $autorizaciones)
     {
         //
     }
@@ -60,10 +54,10 @@ class OdontogramaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Odontograma  $odontograma
+     * @param  \App\Autorizaciones  $autorizaciones
      * @return \Illuminate\Http\Response
      */
-    public function edit(Odontograma $odontograma)
+    public function edit(Autorizaciones $autorizaciones)
     {
         //
     }
@@ -72,10 +66,10 @@ class OdontogramaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Odontograma  $odontograma
+     * @param  \App\Autorizaciones  $autorizaciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Odontograma $odontograma)
+    public function update(Request $request, Autorizaciones $autorizaciones)
     {
         //
     }
@@ -83,10 +77,10 @@ class OdontogramaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Odontograma  $odontograma
+     * @param  \App\Autorizaciones  $autorizaciones
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Odontograma $odontograma)
+    public function destroy(Autorizaciones $autorizaciones)
     {
         //
     }
