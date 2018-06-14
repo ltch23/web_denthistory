@@ -15,8 +15,24 @@ class AutorizacionesController extends Controller
      */
     public function index()
     {
+        
         $doctores = User::where('tipo','1')->get();
-        return view('paciente/autorizar')->with('doctores',$doctores);
+        
+        $activos = Autorizaciones::where('activo','<>',NULL)->get();
+        $mis_doctores = array();
+        if($activos!=null){
+            $cont=0;
+            foreach ($activos as $i) {
+                $mis_doc = User::where('id',$i->id_doctor)->first();
+                if($mis_doc!=null){
+                    $mis_doctores[$cont]= $mis_doc;
+                    $cont++;
+                }
+            }
+        }
+    
+     
+         return view('paciente/autorizar')->with('doctores',$doctores)->with('mis_doctores',$mis_doctores);
     }
 
     /**
@@ -28,7 +44,7 @@ class AutorizacionesController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -85,3 +101,4 @@ class AutorizacionesController extends Controller
         //
     }
 }
+    
