@@ -37,9 +37,10 @@ class HistoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ver()
     {
-        //
+        $historia_actual = Historias::where('id',6)->first();
+        return view('doctor/agregar')->with('historia',$historia_actual);
     }
 
     /**
@@ -51,6 +52,21 @@ class HistoriasController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function save(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        Historias::create([
+            'motivo_consulta'=>$request['motivo_consulta'],
+        ]);
+        return redirect()->back();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Autorizaciones;
+use App\User;
 use Illuminate\Http\Request;
 
 class AutorizacionesController extends Controller
@@ -14,7 +15,8 @@ class AutorizacionesController extends Controller
      */
     public function index()
     {
-        //
+        $doctores = User::where('tipo','1')->get();
+        return view('paciente/autorizar')->with('doctores',$doctores);
     }
 
     /**
