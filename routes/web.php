@@ -33,9 +33,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/historial', 'HistoriasController@index');
     Route::get('/detalle/{id}/{id_doctor}','HistoriasController@verDetalle');
 
-    Route::get('/autorizar', function () {
-        return view('paciente/autorizar');
-    });
+    Route::get('/agregar_historia','HistoriasController@ver');
+    Route::post('/guardar_historia', 'HistoriasController@save');
+
+    Route::get('/autorizar', 'AutorizacionesController@index');
     Route::get('/odontograma', 'OdontogramaController@index');
 
     /*Rutas del Doctor*/

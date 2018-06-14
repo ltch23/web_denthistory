@@ -4,8 +4,10 @@
 
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
-        <form action="{{url('/guardar_perfil')}}" method="post">    
-        <div class="row d-flex justify-content-center">
+        <form action="{{url('/guardar_perfil')}}" method="post">
+            {{ csrf_field() }}
+
+            <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-10">
             	<div class="single-testimonial item">
                     <img class="mx-auto" src="img/cliente_1.png" alt="" width="80px">
@@ -25,7 +27,6 @@
         </div>
         <div class="row">
             
-            {{ csrf_field() }}
             <div class="col-lg-6">
                 <div class="single-offer d-flex flex-row pb-30">
                     <div class="icon">
