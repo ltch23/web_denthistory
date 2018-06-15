@@ -3028,6 +3028,11 @@ h6 {
   height:30px;
   cursor: pointer;
 }
+.diente-m{
+  border: 1px solid black;
+  width:30px;
+  height:30px;
+}
 .cuadrado{
   border: 1px solid black;
   width: 12px;
@@ -3035,7 +3040,7 @@ h6 {
   margin: -19px 0 0 8px;
   background-color: white;
 }
-.trapecio-b {
+.trapecio-3 {
   margin-top: 10px;
   width: 29px;
   height: 0px;
@@ -3043,7 +3048,7 @@ h6 {
   border-left: 10px solid transparent;
   border-bottom: 9px solid white;
 }
-.trapecio-a {
+.trapecio-1 {
   width: 29px;
   height: 0px;
   border-right: 9px solid transparent;
@@ -3052,7 +3057,7 @@ h6 {
   transform: rotate(180deg);
 }
 
-.trapecio-i {
+.trapecio-4 {
   width: 30px;
   height: 0px;
   border-right: 9px solid transparent;
@@ -3062,7 +3067,7 @@ h6 {
   margin: -11px 0 0 -11px;
 }
 
-.trapecio-d {
+.trapecio-2 {
   width: 30px;
   height: 0px;
   border-right: 9px solid transparent;
@@ -3224,4 +3229,9 @@ h6 {
   border-radius: 50px;
   color: white;
   cursor: pointer;
+}
+.num{
+  color: black;
+  font-size: 10px;
+  font-weight: bold;
 }
