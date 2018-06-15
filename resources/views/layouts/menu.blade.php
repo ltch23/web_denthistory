@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="{{asset('js/jquery-1.7.1.min.js')}}"></script>
+
 </head>
 <body>
 
@@ -82,7 +83,6 @@
 -->
 <!-- End footer Area -->
 <script src="{{asset('js/vendor/jquery-2.2.4.min.js')}}"></script>
-<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 <script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
 
