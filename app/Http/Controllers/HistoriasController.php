@@ -39,7 +39,7 @@ class HistoriasController extends Controller
      */
     public function ver()
     {
-        $historia_actual = Historias::where('id',6)->first();
+        $historia_actual = Historias::where('id',1)->first();
         return view('doctor/agregar')->with('historia',$historia_actual);
     }
 
@@ -65,6 +65,12 @@ class HistoriasController extends Controller
         $user_id = Auth::user()->id;
         Historias::create([
             'motivo_consulta'=>$request['motivo_consulta'],
+            'id_doctor'=>$request['id_doctor'],
+            'fecha'=>$request['fecha'],
+            'diagnostico'=>$request['diagnostico'],
+            'observaciones'=>$request['observaciones'],
+            'tratamiento'=>$request['tratamiento'],
+            'id_usuario'=>$user_id,
         ]);
         return redirect()->back();
     }

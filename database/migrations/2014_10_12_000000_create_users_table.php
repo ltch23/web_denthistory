@@ -36,6 +36,8 @@ class CreateUsersTable extends Migration
             $table->text('hereditarios')->nullable();
             $table->text('cirugia')->nullable();
             $table->integer('id_odontograma')->nullable();
+            $table->text('domicilio')->nullable();
+            $table->text('localidad')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

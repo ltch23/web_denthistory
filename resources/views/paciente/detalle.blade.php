@@ -3,6 +3,8 @@
 
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
+        <form action="{{url('/guardar_perfil')}}" method="post">
+            {{ csrf_field() }}
         <div class="col-lg-12 detalle">
             {{$historia->fecha}}
         </div>
