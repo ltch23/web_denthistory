@@ -9,15 +9,28 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h5>Mis Pacientes</h5>
-                    <ul>
-                     @foreach($mis_pacientes as $pac)
-                    <li><a href="{{$pac->id}}"> {{$pac->nombres}} {{$pac->apellidos}} {{$pac->correo}}
+                <div class="list-group">
+                    <h5>Mis Pacientes</h5>
+          
+                    @foreach($mis_pacientes as $pac)
+                    <a href="{{$pac->id}}" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2 fecha">
+                            {{$pac->nombres}} {{$pac->apellidos}}
+                            </div>
+                            <div class="col-md-10">
+                                <span class="fa fa-user-o"></span> {{$pac->nombres}}<br>
+                                <div class="cortar">
+                                    <span class="fa fa-bookmark-o"></span>
+                                     {{$pac->correo}}  {{$pac->telefono}} 
+                                    </div>
+                            </div>
+                        </div>
+                    </a>
                     @endforeach
-                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
 @endsection

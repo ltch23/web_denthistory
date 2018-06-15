@@ -1,17 +1,31 @@
 @extends('layouts.menu')
 @section('content')
 
+
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h5>Mis Doctores</h5>
-                    <ul>
-                     @foreach($mis_doctores as $doc)
-                    <li><a href="{{$doc->id}}"> {{$doc->nombres}} {{$doc->apellidos}} {{$doc->correo}}
+                <div class="list-group">
+                    <h5>Mis Doctores </h5>
+          
+                    @foreach($mis_doctores as $pac)
+                    <a href="{{$pac->id}}" class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2 fecha">
+                            {{$pac->nombres}} {{$pac->apellidos}}
+                            </div>
+                            <div class="col-md-10">
+                                <span class="fa fa-user-o"></span> {{$pac->nombres}}<br>
+                                <div class="cortar">
+                                    <span class="fa fa-bookmark-o"></span>
+                                     {{$pac->correo}}  {{$pac->telefono}} 
+                                    </div>
+                            </div>
+                        </div>
+                    </a>
                     @endforeach
-                    </ul>
-                                                            
+
                 <h5>Autorizar</h5>
     
                 <form action="{{url('/nuevo_auto')}}" method="post">
@@ -30,11 +44,12 @@
 
                 </form>
 
-                <a class="btn-redondo"><span class="fa fa-key"></span></a>
+                <!-- <a class="btn-redondo"><span class="fa fa-key"></span></a> -->
             </div>
         </div>
     </div>
 </section>
+
 
 <script>
 
