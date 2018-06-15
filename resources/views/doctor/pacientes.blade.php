@@ -1,5 +1,9 @@
+
+
+
 @extends('layouts.menu')
 @section('content')
+
 
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
@@ -17,10 +21,10 @@
                         </a>
                             <?php $cont += 1?>
                         @endforeach
+
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 @endsection
