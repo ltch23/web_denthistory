@@ -49,9 +49,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/perfil_doc', 'UserController@index_doc');
     Route::post('/guardar_perfil_doc', 'UserController@save');
     
-    Route::get('/pacientes', function () {
-        return view('doctor/pacientes');
-    });
+    Route::get('/pacientes', 'AutorizacionesController@index_doc');
+    Route::get('/historia_paciente/{id}','HistoriasController@historia_pac');
 
     Route::get('/logout', 'AuthController@logout');
 
