@@ -23,6 +23,20 @@ class UserController extends Controller
         return view('paciente/perfil')->with('perfil',$perfil);
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_doc()
+    {
+        $user_id = Auth::user()->id;
+        $perfil = User::where('id',$user_id)->first();
+        #return $perfil;
+        return view('doctor/perfil')->with('perfil',$perfil);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -75,6 +89,8 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+
+    
     /**
      * Store a newly created resource in storage.
      *
