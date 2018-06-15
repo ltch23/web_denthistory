@@ -14,14 +14,16 @@
                     @for($i = 1; $i <= 16; $i++)
                         <td>
                             <div class="diente" data-diente="diente{{$i}}" data-name="{{$dientes[$i-1]}}">
-                                <div class="trapecio-alto"></div>
-                                <div class="trapecio-bajo"></div>
-                                <div class="cuadrado"></div>
-                                <div class="trapecio-izq"></div>
-                                <div class="trapecio-der"></div>
-                                <div class="cross" style="background-color: transparent"></div>
-                                <div class="cross2" style="background-color: transparent"></div>
-                                <div class="puente" style="background-color: transparent"></div>
+                                <div class="dent{{$i}}">
+                                    <div class="trapecio-alto"></div>
+                                    <div class="trapecio-bajo"></div>
+                                    <div class="cuadrado"></div>
+                                    <div class="trapecio-izq"></div>
+                                    <div class="trapecio-der"></div>
+                                    <div class="cross" style="background-color: transparent"></div>
+                                    <div class="cross2" style="background-color: transparent"></div>
+                                    <div class="puente" style="background-color: transparent"></div>
+                                </div>
                             </div>
                         </td>
                     @endfor
@@ -117,6 +119,12 @@
         $('#myModal').modal('show');
         $('#name_diente').text(nombre);
         $('#info').html(data[idc]);
+    });
+    function add_detail(pos_diente) {
+        $('.dent'+pos_diente)
+    }
+    $(function() {
+
     });
 </script>
 @endsection
