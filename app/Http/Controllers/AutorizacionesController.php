@@ -37,6 +37,30 @@ class AutorizacionesController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_doc()
+    {
+        $user_id = Auth::user()->id;
+        $pacientes = Autorizaciones::where('id_doctor',$user_id)->get();
+        $nombres = array();
+        if($pacientes!=null){
+            $cont=0;
+            foreach ($pacientes as $i) {
+                $pa = User::where('id',$i->id_usuario)->first();
+                if($pa!=null){
+                    $nombres[$cont]= $pa;
+                    $cont++;
+                }
+            }
+        }
+        return view('doctor/pacientes')->with('pacientes',$pacientes)->with('nombres',$nombres);
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

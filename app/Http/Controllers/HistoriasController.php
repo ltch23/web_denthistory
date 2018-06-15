@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Historias;
+use App\Odontograma;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -129,8 +130,37 @@ class HistoriasController extends Controller
      */
     public function verDetalle($id, $id_doctor)
     {
+        $dientes =[
+            'Tercer Molar Izquierdo','Segundo Molar Izquierdo', 'Primer Molar Izquierdo','Segundo Premolar Izquierdo','Primer Premolar Izquierdo', 'Canino Izquierdo', 'Incisivo Lateral Izquierdo', 'Incisivo Central Izquierdo',
+            'Incisivo Central Derecho','Incisivo Lateral Derecho','Canino Derecho','Primer Premolar Derecho','Segundo Premolar Derecho', 'Primer Molar Derecho','Segundo Molar Derecho','Tercer Molar Derecho'
+        ];
         $historia = Historias::where('id',$id)->first();
         $doctor = User::where('id',$id_doctor)->first();
-        return view('paciente/detalle')->with('historia',$historia)->with('doctor',$doctor);
+        $odonto = Odontograma::where('id',$historia->id_odontograma)->first();
+        return view('paciente/detalle')->with('historia',$historia)->with('doctor',$doctor)->with('odont',$odonto)->with('dientes',$dientes);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @param  int  $id_doctor
+     * @return \Illuminate\Http\Response
+     */
+    public function historia_pac($id)
+    {
+        $historias = Historias::where('id_usuario',$id)->get();
+        $doctores = array();
+        if($historias!=null){
+            $cont=0;
+            foreach ($historias as $i) {
+                $doc = User::where('id',$i->id_doctor)->first();
+                if($doc!=null){
+                    $doctores[$cont]= $doc;
+                    $cont++;
+                }
+            }
+        }
+        return view('doctor/historial_paciente')->with('historias',$historias)->with('doctores',$doctores);
     }
 }

@@ -10,24 +10,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="list-group">
-                    <h5>Mis Pacientes</h5>
-          
-                    @foreach($mis_pacientes as $pac)
-                    <a href="{{$pac->id}}" class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2 fecha">
-                            {{$pac->nombres}} {{$pac->apellidos}}
+                    <?php $cont = 0?>
+                @foreach($pacientes as $pa)
+                        <a href="{{url('/historia_paciente/'.$nombres[$cont]->id)}}" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="fa fa-user-circle" style="font-size: 20px"></span> {{$nombres[$cont]->nombres}} {{$nombres[$cont]->apellidos}} <br>
+                                </div>
                             </div>
-                            <div class="col-md-10">
-                                <span class="fa fa-user-o"></span> {{$pac->nombres}}<br>
-                                <div class="cortar">
-                                    <span class="fa fa-bookmark-o"></span>
-                                     {{$pac->correo}}  {{$pac->telefono}} 
-                                    </div>
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
+                        </a>
+                            <?php $cont += 1?>
+                        @endforeach
+
                 </div>
             </div>
         </div>
