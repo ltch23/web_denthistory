@@ -155,7 +155,7 @@
             <div class="col-lg-12">
             <div class="single-offer d-flex flex-row pb-30">
                     <div class="icon">
-                        <img src="img/house.png" alt="">
+                        <img src="img/ps.png" alt="" height="60" width="60">
                     </div>
                     <div class="desc">
                         <a href="#"><h4>Estado Civil</h4></a>
