@@ -37,6 +37,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/guardar_historia', 'HistoriasController@save');
 
     Route::get('/autorizar', 'AutorizacionesController@index');
+    Route::post('/nuevo_auto', 'AutorizacionesController@crear');
+
+    
     Route::get('/odontograma', 'OdontogramaController@index');
 
     /*Rutas del Doctor*/

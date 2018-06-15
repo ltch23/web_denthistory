@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Autorizaciones;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AutorizacionesController extends Controller
 {
@@ -15,10 +16,10 @@ class AutorizacionesController extends Controller
      */
     public function index()
     {
-        
+        $user_id = Auth::user()->id;
         $doctores = User::where('tipo','1')->get();
         
-        $activos = Autorizaciones::where('activo','<>',NULL)->get();
+        $activos = Autorizaciones::where('activo','<>',NULL)->where('id_usuario',$user_id)->get();
         $mis_doctores = array();
         if($activos!=null){
             $cont=0;
@@ -55,7 +56,23 @@ class AutorizacionesController extends Controller
     {
         //
     }
+/**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function crear(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        Autorizaciones::create([
+            'id_usuario'=> $user_id,
+            'id_doctor'=>$request['id_doc'],
+            'activo'=>'1',
+        ]);
 
+        return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *

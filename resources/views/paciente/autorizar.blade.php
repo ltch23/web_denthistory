@@ -14,13 +14,19 @@
                                                             
                 <h5>Autorizar</h5>
     
-                <form id="buscador" name="buscador" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                <form action="{{url('/nuevo_auto')}}" method="post">
+                {{ csrf_field() }}
+                    
                     <input autocomplete="off" list="listdoctores" class="form-control" id="doctores" name="doctores" placeholder="Buscar por nombre o correo" type="text">
                     <datalist id="listdoctores">
                         @foreach($doctores as $doc)
                             <option data-id="{{$doc->id}}" value="{{$doc->nombres}} {{$doc->apellidos}} {{$doc->correo}}">
                         @endforeach
                     </datalist>
+
+                    <input id="id_doc" type="text" value="" name="id_doc" hidden>                    
+                    <a id="aceptar_doctor" class="btn-primary">agregar doctor</a>
+                    <input type="submit"/>
 
                 </form>
 
@@ -29,6 +35,18 @@
         </div>
     </div>
 </section>
-</section>
+
+<script>
+
+    $("#aceptar_doctor").click(function(){
+        console.log("entre");
+    var val_doctor=$("#doctores").val();
+    var ele_doctor=$('option[value="'+val_doctor+'"]');
+    var id_doctor= ele_doctor.data("id");
+    
+    $("#id_doc").val(id_doctor);
+    }); 
+
+</script>
 
 @endsection
