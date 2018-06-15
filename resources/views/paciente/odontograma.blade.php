@@ -15,11 +15,11 @@
                         <td>
                             <div class="diente" data-diente="diente{{$i}}" data-name="{{$dientes[$i-1]}}">
                                 <div class="dent{{$i}}">
-                                    <div class="trapecio-alto"></div>
-                                    <div class="trapecio-bajo"></div>
+                                    <div class="trapecio-a"></div>
+                                    <div class="trapecio-b"></div>
                                     <div class="cuadrado"></div>
-                                    <div class="trapecio-izq"></div>
-                                    <div class="trapecio-der"></div>
+                                    <div class="trapecio-i"></div>
+                                    <div class="trapecio-d"></div>
                                     <div class="cross" style="background-color: transparent"></div>
                                     <div class="cross2" style="background-color: transparent"></div>
                                     <div class="puente" style="background-color: transparent"></div>
@@ -34,11 +34,11 @@
                         <td>
                             <div class="diente" data-diente="diente{{$i}}" data-name="{{$dientes[$i-17]}}">
                                 <div class="dent{{$i}}">
-                                    <div class="trapecio-alto"></div>
-                                    <div class="trapecio-bajo"></div>
+                                    <div class="trapecio-a"></div>
+                                    <div class="trapecio-b"></div>
                                     <div class="cuadrado"></div>
-                                    <div class="trapecio-izq"></div>
-                                    <div class="trapecio-der"></div>
+                                    <div class="trapecio-i"></div>
+                                    <div class="trapecio-d"></div>
                                     <div class="cross" style="background-color: transparent"></div>
                                     <div class="cross2" style="background-color: transparent"></div>
                                     <div class="puente" style="background-color: transparent"></div>
@@ -112,19 +112,51 @@
     </div>
 </div>
 <script>
+    var data = JSON.parse('<?php echo json_encode($odont); ?>');
+
     $('.diente').click(function() {
         var idc=($(this).data("diente"));
         var nombre=($(this).data("name"));
-        var data = JSON.parse('<?php echo json_encode($odont); ?>');
         $('#myModal').modal('show');
         $('#name_diente').text(nombre);
         $('#info').html(data[idc]);
     });
-    function add_detail(pos_diente) {
-        $('.dent'+pos_diente)
+
+    function graficar_dent(data_dent,num) {
+        var comas = data_dent.split(','); //primer dato
+        for(i=0; i<comas.length; i++){
+            var guion = comas[i].split('-');
+            if(guion.length>1){
+                var color;
+                if(guion[0]=='r')
+                    color = '#e94222';
+                else
+                    color = '#17a2b8';
+
+                if(guion[1]=='c')
+                    $('.dent'+num+' .cuadrado').css('background-color',color);
+
+                //console.log(guion);
+                $('.dent'+num+' .trapecio-'+guion[1]).css('border-bottom-color',color);
+            }
+            if(guion[0]=='x'){
+                $('.dent'+num+' .cross').css('background-color','black');
+                $('.dent'+num+' .cross2').css('background-color','black');
+            }
+            if(guion[0]=='p'){
+                $('.dent'+num+' .puente').css('background-color','#e94222');
+            }
+
+        }
     }
     $(function() {
-
+        var i;
+        for(i=0; i<33; i++){
+            var temp = 'diente'+(i+1).toString();
+            if(data[temp]!=null){
+                graficar_dent(data[temp],i+1);
+            }
+        }
     });
 </script>
 @endsection

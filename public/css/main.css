@@ -3035,7 +3035,7 @@ h6 {
   margin: -19px 0 0 8px;
   background-color: white;
 }
-.trapecio-bajo {
+.trapecio-b {
   margin-top: 10px;
   width: 29px;
   height: 0px;
@@ -3043,7 +3043,7 @@ h6 {
   border-left: 10px solid transparent;
   border-bottom: 9px solid white;
 }
-.trapecio-alto {
+.trapecio-a {
   width: 29px;
   height: 0px;
   border-right: 9px solid transparent;
@@ -3052,7 +3052,7 @@ h6 {
   transform: rotate(180deg);
 }
 
-.trapecio-izq {
+.trapecio-i {
   width: 30px;
   height: 0px;
   border-right: 9px solid transparent;
@@ -3062,7 +3062,7 @@ h6 {
   margin: -11px 0 0 -11px;
 }
 
-.trapecio-der {
+.trapecio-d {
   width: 30px;
   height: 0px;
   border-right: 9px solid transparent;
