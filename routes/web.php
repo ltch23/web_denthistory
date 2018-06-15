@@ -37,21 +37,20 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/guardar_historia', 'HistoriasController@save');
 
     Route::get('/autorizar', 'AutorizacionesController@index');
+    Route::post('/nuevo_auto', 'AutorizacionesController@crear');
+    
+    Route::get('/pacientes', 'UserController@show_pac');
+    
     Route::get('/odontograma', 'OdontogramaController@index');
 
     /*Rutas del Doctor*/
     Route::get('/inicio_doc', function () {
         return view('doctor/inicio');
     });
-    /*Route::get('/perfil_doc', function () {
-        return view('doctor/perfil');
-    });*/
+
     Route::get('/perfil_doc', 'UserController@index_doc');
     Route::post('/guardar_perfil_doc', 'UserController@save');
     
-    Route::get('/pacientes', function () {
-        return view('doctor/pacientes');
-    });
 
     Route::get('/logout', 'AuthController@logout');
 
