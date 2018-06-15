@@ -47,12 +47,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/inicio_doc', function () {
         return view('doctor/inicio');
     });
-    Route::get('/perfil_doc', function () {
-        return view('doctor/perfil');
-    });
-    // Route::get('/pacientes', function () {
-    //     return view('doctor/pacientes');
-    // });
+
+    Route::get('/perfil_doc', 'UserController@index_doc');
+    Route::post('/guardar_perfil_doc', 'UserController@save');
+    
 
     Route::get('/logout', 'AuthController@logout');
 

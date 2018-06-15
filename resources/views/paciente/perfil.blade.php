@@ -10,7 +10,24 @@
             <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-10">
             	<div class="single-testimonial item">
-                    <img class="mx-auto" src="img/cliente_1.png" alt="" width="80px">
+                    <img class="mx-auto" 
+                            
+                            <?php
+                            if ($perfil->sexo == "Femenino") {
+                                $foto = "img/cliente_2.png";
+                            }
+                            elseif ($perfil->sexo == "Masculino"){
+                                $foto = "img/cliente_1.png";
+
+                            }
+                            else
+                            {
+                                $foto = "img/cliente_1.png";
+                            }
+                            ?>
+
+                    
+                    src={{$foto}} alt="" width="80px">
                     <!--<p class="desc">
                         En esta sección se encuentra información relevante del paciente: Nombre, Edad, Enfermedades hereditarias, alergias, etc. La información que coloque deberá ser objetiva y precisa.
                     </p>-->
@@ -48,10 +65,8 @@
                         </p>
                         <a href="#"><h5>Sexo</h5></a>
                         <p>
-                            <select class='form-control' name="sexo" >
-                                <option value=0>Femenino</option>
-                                <option value=1>Masculino</option>                                
-                            </select> 
+                             <input class='form-control' type="text" name="sexo" value="{{$perfil->sexo}}">
+                            
                         </p>
                     </div>
                 </div>
@@ -60,9 +75,9 @@
                         <img src="img/s4.png" alt="">
                     </div>
                     <div class="desc">
-                        <a href="#"><h4>Padecimientos Hereditarios</h4></a>
-                        <p>   
-                            <input width="100" height="100" class='form-control' type="text" name="hereditarios" value="{{$perfil->hereditarios}}">
+                        <a href="#"><h4>Padecimientos Hereditarios y Alergias</h4></a>
+                        <p>  
+                        <textarea class='form-control' rows="4" cols="50" name='hereditarios'>{{$perfil->hereditarios}}</textarea>
                         </p>
                         
                     </div>
@@ -84,7 +99,7 @@
                         </p>
                         <a href="#"><h5>Número Telefónico en caso de Emergencia</h5></a>
                         <p>
-                            <input class='form-control' type="tel" name="telefono_2" value="{{$perfil->telefono_2}}">
+                            <input class='form-control' type="tel" name="telefono_emer" value="{{$perfil->telefono_emer}}">
                         </p>
                         <a href="#"><h5>DNI</h5></a>
                         <p>
@@ -99,7 +114,7 @@
                     <div class="desc">
                         <a href="#"><h4>Intervenciones Quirúrguicas</h4></a>
                         <p>
-                            <input class='form-control' type="text" name="alergias" value="{{$perfil->alergias}}">
+                            <textarea class='form-control' rows="4" cols="50"  name='cirugia'>{{$perfil->cirugia}}</textarea>
     
                         </p>
                     </div>
@@ -130,7 +145,7 @@
                         </p>
                         <a href="#"><h4>Clínica Afiliada</h4></a>
                         <p>
-                            <input class='form-control' type="text" name="clinica" value="{{$perfil->clinica}}">
+                            <input class='form-control' type="text" name="clinica_pac" value="{{$perfil->clinica_pac}}">
                         </p>
                     </div>
                 </div>
@@ -140,7 +155,7 @@
             <div class="col-lg-12">
             <div class="single-offer d-flex flex-row pb-30">
                     <div class="icon">
-                        <img src="img/house.png" alt="">
+                        <img src="img/ps.png" alt="" height="60" width="60">
                     </div>
                     <div class="desc">
                         <a href="#"><h4>Estado Civil</h4></a>
@@ -154,7 +169,7 @@
                         </p>
                         <a href="#"><h4>Número de Hijos</h4></a>
                         <p>
-                            <input class='form-control' type="number" name="hijos" value="{{$perfil->hijos}}">
+                            <input class='form-control' type="number" name="num_hijos" value="{{$perfil->num_hijos}}">
                         </p>
                     </div>
                 </div>

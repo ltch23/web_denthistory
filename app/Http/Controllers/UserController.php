@@ -24,6 +24,20 @@ class UserController extends Controller
         return view('paciente/perfil')->with('perfil',$perfil);
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_doc()
+    {
+        $user_id = Auth::user()->id;
+        $perfil = User::where('id',$user_id)->first();
+        #return $perfil;
+        return view('doctor/perfil')->with('perfil',$perfil);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -62,13 +76,22 @@ class UserController extends Controller
         $user->telefono = $request['telefono'];
         $user->hereditarios = $request['hereditarios'];
         $user->alergias = $request['alergias'];
+        $user->cirugia = $request['cirugia'];
         $user->dni = $request['dni'];
+        $user->sangre = $request['sangre'];
+        $user->telefono_emer = $request['telefono_emer'];
+        $user->residencia = $request['residencia'];
+        $user->clinica_pac = $request['clinica_pac'];
+        $user->estado_civil = $request['estado_civil'];
+        $user->num_hijos = $request['num_hijos'];
 
         $user->save();
 
         return redirect()->back();
     }
 
+
+    
     /**
      * Store a newly created resource in storage.
      *
