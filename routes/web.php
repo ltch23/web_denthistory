@@ -38,7 +38,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/autorizar', 'AutorizacionesController@index');
     Route::post('/nuevo_auto', 'AutorizacionesController@crear');
-
+    
+    Route::get('/pacientes', 'UserController@show_pac');
     
     Route::get('/odontograma', 'OdontogramaController@index');
 
@@ -49,9 +50,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/perfil_doc', function () {
         return view('doctor/perfil');
     });
-    Route::get('/pacientes', function () {
-        return view('doctor/pacientes');
-    });
+    // Route::get('/pacientes', function () {
+    //     return view('doctor/pacientes');
+    // });
 
     Route::get('/logout', 'AuthController@logout');
 

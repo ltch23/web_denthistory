@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Odontograma;
 use App\User;
+use App\Autorizaciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -119,6 +120,28 @@ class UserController extends Controller
         return redirect()->back();
         //return redirect()->back();
     }
+
+
+   public function show_pac()
+    {
+        $user_id = Auth::user()->id;
+        // $activos = Autorizaciones::where('activo','<>',NULL)->where('id_usuario',$user_id)->get();
+        $activos = Autorizaciones::where('activo','<>',NULL)->get();
+        $mis_pacientes = array();
+        if($activos!=null){
+            $cont=0;
+            foreach ($activos as $i) {
+                $mis_pac = User::where('id',$i->id_usuario)->first();
+                if($mis_pac!=null){
+                    $mis_pacientes[$cont]= $mis_pac;
+                    $cont++;
+                }
+            }
+        }
+     
+         return view('doctor/pacientes')->with('mis_pacientes',$mis_pacientes);
+    }
+    
 
     /**
      * Display the specified resource.
