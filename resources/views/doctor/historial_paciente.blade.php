@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <a href="{{url('/agregar_historia')}}"><span class="fa fa-plus"></span> Agregar Nueva</a>
+                <a href="{{url('/agregar_historia/'.$num)}}"><span class="fa fa-plus"></span> Agregar Nueva</a>
             </div>
 
         </div>

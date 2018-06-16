@@ -38,10 +38,11 @@ class HistoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ver()
+    public function ver($id)
     {
+        $num =$id;
         $historia_actual = Historias::where('id',1)->first();
-        return view('doctor/agregar')->with('historia',$historia_actual);
+        return view('doctor/agregar')->with('historia',$historia_actual)->with('num',$num);
     }
 
     /**
@@ -61,19 +62,22 @@ class HistoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function save(Request $request)
+    public function save($num,Request $request)
     {
         $user_id = Auth::user()->id;
-        Historias::create([
+        $id=Historias::create([
             'motivo_consulta'=>$request['motivo_consulta'],
-            'id_doctor'=>$request['id_doctor'],
+            'id_doctor'=>$user_id,
             'fecha'=>$request['fecha'],
             'diagnostico'=>$request['diagnostico'],
             'observaciones'=>$request['observaciones'],
             'tratamiento'=>$request['tratamiento'],
-            'id_usuario'=>$user_id,
-        ]);
-        return redirect()->back();
+            'radiografia'=>$request['radiografia'],
+            'id_usuario'=>$num,
+        ])->id;
+        //return redirect()->back();
+        $historia_actual = Historias::where('id',$id)->first();
+        return view('doctor/visagregar')->with('historia',$historia_actual)->with('num',$num);
     }
 
     /**
@@ -151,6 +155,7 @@ class HistoriasController extends Controller
     {
         $historias = Historias::where('id_usuario',$id)->get();
         $doctores = array();
+        $num =$id;
         if($historias!=null){
             $cont=0;
             foreach ($historias as $i) {
@@ -161,6 +166,6 @@ class HistoriasController extends Controller
                 }
             }
         }
-        return view('doctor/historial_paciente')->with('historias',$historias)->with('doctores',$doctores);
+        return view('doctor/historial_paciente')->with('historias',$historias)->with('doctores',$doctores)->with('num',$num);
     }
 }

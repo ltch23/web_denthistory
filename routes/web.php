@@ -33,8 +33,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/historial', 'HistoriasController@index');
     Route::get('/detalle/{id}/{id_doctor}','HistoriasController@verDetalle');
 
-    Route::get('/agregar_historia','HistoriasController@ver');
-    Route::post('/guardar_historia', 'HistoriasController@save');
+    Route::get('/agregar_historia/{id}','HistoriasController@ver');
+    Route::post('/guardar_historia/{id}', 'HistoriasController@save');
 
     Route::get('/autorizar', 'AutorizacionesController@index');
     Route::post('/nuevo_auto', 'AutorizacionesController@crear');
