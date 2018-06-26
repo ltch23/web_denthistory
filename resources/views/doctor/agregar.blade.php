@@ -119,30 +119,77 @@
                 </table>
             </div>
         </div>
+
+            <!--form de odonto-->
         <div class="row">
             <div class="col-md-12">
-                <button id="masfilas" class="add_form_field">Agregar malla o fondo &  nbsp;
-                    <span style="font-size:16px; font-weight:bold;">+ </span>
-                </button>
-                <div class="table-responsive">
-                    <table id="mytable" class="table">
-                        <tr>
-                            <th>PÁRAMETRO</th>
-                            <th>UNIDAD</th>
-                            <th>ESPECIFICACIÓN</th>
-                            <th>RESULTADO</th>
-                            <th>opciones</th>
-                        </tr>
-                    </table>
+                <div id="form_productos">
+                    <button class="add_field_button btn-success form-control col-md-1" style="margin: 5px"><span class="fa fa-plus"></span></button>
+                    <div class="input_fields_wrap">
+                        <div id="input1">
+                            <select class="col-md-2" name="cars">
+                                @for($i = 1; $i <17; $i++)
+                                    <option value="{{$i}}">{{$i}} {{$dientes[$i-1]}}</option>
+                                @endfor
+                            </select>
+                            <input class="col-md-2" type="number" id="cantidadp"  name="cantidadp[]" placeholder="Nro Diente" min="1" max="32">
+                            <input class="col-md-2" type="text" id="nombrep" name="nombrep[]" placeholder="">
+                            <input class="col-md-2" type="number" id="preciop" name="preciopu[]" placeholder="P. Unidad" step="0.01">
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
+            <br><br>
             <button class="btn-primary form-control" type="sumit" onclick="clicked();"> Guardar </button>
         </form>
     </div>
 
 </section>
+<script>
+    $(document).ready(function() {
 
+        var max_fields      = 10; //maximum input boxes allowed
+        var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+        var add_button      = $(".add_field_button"); //Add button ID
+        var cont=2;
+        var x = 1; //initlal text box count
+        $(add_button).click(function(e){ //on add input button click
+            e.preventDefault();
+            if(x < max_fields){ //max input box allowed
+                x++; //text box increment
+                //var a = $('#input').html();
+                var a= $('#input1').clone().prop('id', 'input'+cont).find("input").val("").end();
+                $(a).append('<i class="remove_field col-md-1 fa fa-times vcenter" style="font-size:25px;color:red;cursor:pointer"></i>');
+                //$(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Quitar</a></div>'); //add input box
+                $(wrapper).append(a);
+                //$(wrapper).append('<div id="input"><input class="col-md-5" type="text" name="nombrep[]" placeholder="Producto"><input class="col-md-2" type="text" name="cantidadp[]" placeholder="Cantidad"><input class="col-md-2" type="text" name="preciop[]" placeholder="S/. Unidad"><a href="#" class="remove_field col-md-2 " style="margin-top: 5px">Quitar</a></div>')
+                cont++;
+            }
+        });
+
+        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+            //actulizarTotal();
+        });
+
+
+        $(wrapper).on("change","#cantidadp", function(e){
+            e.preventDefault();
+            var padre=$(this).parent('div');
+            //importeCalc(padre);
+        });
+
+        $(wrapper).on("change","#preciop", function(e){
+            e.preventDefault();
+            var padre=$(this).parent('div');
+            //importeCalc(padre);
+        });
+
+    });
+</script>
 <div class="modal fade" id="dienteModal" role="dialog">
     <div class="modal-dialog">
 
@@ -244,16 +291,7 @@
         }
     });
 
-    $("#masfilas").click(function(){
-        $("#mytable").append('<tr><td><input type="text" name="parametros[]"/></td><td> ' +
-            '<input type="text" name="unidad[]"/></td><td> ' +
-            '<input type="text" name="especificacion[]"/></td><td> ' +
-            '<input type="text" name="resultado[]"/></td><td> ' +
-            '<a href="#" class="delete">Eliminar</a></td></tr>');
-        $('.delete').off().click(function(e) {
-            $(this).parent('td').parent('tr').remove();
-        });
-    });
+
 </script>
 
 @endsection
