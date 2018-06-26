@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <div class="list-group">
                     <h5>Mis Doctores </h5>
-          
+
                     @foreach($mis_doctores as $pac)
                     <a href="{{$pac->id}}" class="list-group-item">
                         <div class="row">
