@@ -123,22 +123,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-12">
-            <button id="masfilas" class="add_form_field">Agregar malla o fondo &  nbsp;
-                <span style="font-size:16px; font-weight:bold;">+ </span>
-            </button>
-            <div class="table-responsive">
-                <table id="mytable" class="table">
-                    <tr>
-                        <th>PÁRAMETRO</th>
-                        <th>UNIDAD</th>
-                        <th>ESPECIFICACIÓN</th>
-                        <th>RESULTADO</th>
-                        <th>opciones</th>
-                    </tr>
-                </table>
-            </div>
-        </div>
     </div>
 
 </section>
