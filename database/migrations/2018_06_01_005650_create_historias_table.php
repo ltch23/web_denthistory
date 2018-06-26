@@ -15,11 +15,11 @@ class CreateHistoriasTable extends Migration
     {
         Schema::create('historias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_usuario')->nullable();
-            $table->integer('id_doctor')->nullable();
-            $table->date('fecha')->nullable();
+            $table->integer('id_usuario');
+            $table->integer('id_doctor');
+            $table->date('fecha');
             $table->longText('motivo_consulta');
-            $table->longText('diagnostico')->nullable();
+            $table->longText('diagnostico');
             $table->longText('observaciones')->nullable();
             $table->longText('tratamiento')->nullable();
             $table->text('radiografia')->nullable();

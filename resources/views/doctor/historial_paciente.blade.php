@@ -23,7 +23,7 @@
                                     <span class="fa fa-user-o"></span> {{$doctores[$cont]->nombres}} {{$doctores[$cont]->apellidos}} <br>
                                     <div class="cortar">
                                         <span class="fa fa-bookmark-o"></span>
-                                        {{$val->diagnostico}}
+                                        {{$val->motivo_consulta}}
                                     </div>
                                 </div>
                             </div>

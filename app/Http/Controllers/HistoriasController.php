@@ -41,8 +41,13 @@ class HistoriasController extends Controller
     public function ver($id)
     {
         $num =$id;
-        $historia_actual = Historias::where('id',1)->first();
-        return view('doctor/agregar')->with('historia',$historia_actual)->with('num',$num);
+        $dientes =[
+            'Tercer Molar Izquierdo','Segundo Molar Izquierdo', 'Primer Molar Izquierdo','Segundo Premolar Izquierdo','Primer Premolar Izquierdo', 'Canino Izquierdo', 'Incisivo Lateral Izquierdo', 'Incisivo Central Izquierdo',
+            'Incisivo Central Derecho','Incisivo Lateral Derecho','Canino Derecho','Primer Premolar Derecho','Segundo Premolar Derecho', 'Primer Molar Derecho','Segundo Molar Derecho','Tercer Molar Derecho'
+        ];
+        $odont = Odontograma::where('id_usuario',$id)->get();
+        //$historia_actual = Historias::where('id',1)->first();
+        return view('doctor/agregar')->with('num',$num)->with('dientes',$dientes)->with('odont',$odont[count($odont)-1]);
     }
 
     /**
@@ -75,9 +80,11 @@ class HistoriasController extends Controller
             'radiografia'=>$request['radiografia'],
             'id_usuario'=>$num,
         ])->id;
-        //return redirect()->back();
-        $historia_actual = Historias::where('id',$id)->first();
-        return view('doctor/visagregar')->with('historia',$historia_actual)->with('num',$num);
+
+        return redirect("/historia_paciente/".$num);
+        //return $this->historia_pac($num);
+        //$historias = Historias::where('id',$id)->first();
+        //return view('doctor/visagregar')->with('historia',$historia_actual)->with('num',$num);
     }
 
     /**
