@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="col-md-12" style="color: darkslategray;text-align: right;padding-top: 10px">
+    <b>Visitas :</b> {{$contador}}
+</div>
     <div class="col-md-12">
 
     <div class="wrap">
@@ -15,6 +18,7 @@
             <a href="{{ url('register') }}" class="btn btn-default btn-sm boton" >Ir a Registrar</a>
         </form>
     </div>
+
     </div>
 @endsection
 
