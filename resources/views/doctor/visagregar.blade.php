@@ -1,13 +1,5 @@
 @extends('layouts.menu')
 @section('content')
-<script type="text/javascript">
-    function clicked()
-        {   /*$('#myModal').modal('show');
-            $('#name_diente').text("Guardado");*/
-            alert("Guardado");
-        }
-
-</script>
 
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
@@ -42,9 +34,9 @@
                     </div>
                     <div class="desc">
                         <h4>Consulta</h4>
-                        <p>    <b>Fecha:</b> <input type="date" name="fecha" /></p>
+                        <p>    <b>Fecha:</b> <input type="date" name="fecha"  value="{{$historia->fecha}}" /></p>
                         <p>    <b>Motivo de consulta:</b>
-                            <input type="text"  placeholder="Motivo de consulta"  name="motivo_consulta" /></p>
+                            <input type="text" name="motivo_consulta" value="{{$historia->motivo_consulta}}" /></p>
                     </div>
                 </div>
 
@@ -56,8 +48,8 @@
                     </div>
                     <div class="desc">
                         <h4>Resultados</h4>
-                        <p>    <b>Diagnóstico:</b> <input type="text" placeholder="Diagnóstico" name="diagnostico"  /></p>
-                        <p>    <b>Observaciones:</b> <input type="text" placeholder="Observaciones" name="observaciones"  /> </p>
+                        <p>    <b>Diagnóstico:</b> <input type="text" placeholder="Diagnóstico" name="diagnostico"  value="{{$historia->diagnostico}}"/></p>
+                        <p>    <b>Observaciones:</b> <input type="text" placeholder="Observaciones" name="observaciones"  value="{{$historia->observaciones}}"/> </p>
                     </div>
                 </div>
                 <div class="single-offer d-flex flex-row pb-30">
@@ -66,7 +58,7 @@
                     </div>
                     <div class="desc">
                         <h4>Tratamiento</h4>
-                        <p>    <b>Descripción:</b><input type="text" placeholder="Tratamiento" name="tratamiento" /></p>
+                        <p>    <b>Descripción:</b><input type="text" placeholder="Tratamiento" name="tratamiento"  value="{{$historia->tratamiento}}"/></p>
                     </div>
                 </div>
                 <div class="single-offer d-flex flex-row pb-30">
@@ -76,28 +68,14 @@
                     <div class="desc">
                         <h4>Recursos</h4>
                         <p>    <b>Odontograma:</b> <a href="{{url('/odontograma')}}" style="color:#009999">Click aqui </a> para editar historia.</p>
-                        <p>    <b>Radiografía:</b> <input type="text" placeholder="Radiografía" name="radiografia" /> </p>
+                        <p>    <b>Radiografía:</b> <input type="text" placeholder="Radiografía" name="radiografia" value="{{$historia->radiografia}}"/> </p>
                     </div>
                 </div>
             </div>
         </div>
-            <button type="sumit" onclick="clicked();"> Guardar </button>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="submit" class="close" data-dismiss="modal">&times;</button>
-                            <div class="modal-title"><b id="name_diente"></b></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <input type="submit">
         </form>
     </div>
-
 </section>
 
 @endsection
