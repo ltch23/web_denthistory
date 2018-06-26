@@ -3,8 +3,6 @@
 
 <section class="we-offer-area section-gap" id="offer">
     <div class="container">
-        <form action="{{url('/guardar_perfil')}}" method="post">
-            {{ csrf_field() }}
         <div class="col-lg-12 detalle">
             {{$historia->fecha}}
         </div>
@@ -42,8 +40,8 @@
                     </div>
                     <div class="desc">
                         <h4>Resultados</h4>
-                        <p>    <b>Diagnóstico:</b>{{$historia->diagnostico}}</p>
-                        <p>    <b>Observaciones:</b>{{$historia->observaciones}}</p>
+                        <p>    <b>Diagnóstico:</b> {{$historia->diagnostico}}</p>
+                        <p>    <b>Observaciones:</b> {{$historia->observaciones}}</p>
                     </div>
                 </div>
                 <div class="single-offer d-flex flex-row pb-30">
@@ -62,7 +60,9 @@
                     <div class="desc">
                         <h4>Recursos</h4>
                         <p>    <b>Radiografía:</b> {{$historia->radiografia}} </p>
-                        <a id="myImg" style="color:#009999">Mostrar</a>
+                        @if($historia->img_radiografia != null)
+                            <a id="myImg" style="color:#009999">Mostrar</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -123,14 +123,31 @@
                 </tbody>
             </table>
         </div>
-
+        <div class="col-md-12">
+            <button id="masfilas" class="add_form_field">Agregar malla o fondo &  nbsp;
+                <span style="font-size:16px; font-weight:bold;">+ </span>
+            </button>
+            <div class="table-responsive">
+                <table id="mytable" class="table">
+                    <tr>
+                        <th>PÁRAMETRO</th>
+                        <th>UNIDAD</th>
+                        <th>ESPECIFICACIÓN</th>
+                        <th>RESULTADO</th>
+                        <th>opciones</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
 </section>
 
 <div id="myModal" class="modal">
     <span class="close" style="margin-top: 45px">&times;</span>
-    <img class="modal-content" id="img01" src="{{url($historia->img_radiografia)}}">
+    @if($historia->img_radiografia != null)
+        <img class="modal-content" id="img01" src="{{url($historia->img_radiografia)}}">
+    @endif
 </div>
 <script>
     // Get the modal
@@ -251,6 +268,17 @@
                 graficar_dent(data[temp],i+1);
             }
         }
+    });
+
+    $("#masfilas").click(function(){
+        $("#mytable").append('<tr><td><input type="text" name="parametros[]"/></td><td> ' +
+            '<input type="text" name="unidad[]"/></td><td> ' +
+            '<input type="text" name="especificacion[]"/></td><td> ' +
+            '<input type="text" name="resultado[]"/></td><td> ' +
+            '<a href="#" class="delete">Eliminar</a></td></tr>');
+        $('.delete').off().click(function(e) {
+            $(this).parent('td').parent('tr').remove();
+        });
     });
 </script>
 
